@@ -1,0 +1,26 @@
+.titleContent {
+    margin: 1rem 0;
+    font-family: 'Bad Script', cursive;
+    font-size: 2rem;
+    padding: 1rem 0;
+    color: #474747;
+    line-height: 0.7rem;
+    outline: none;
+    animation: animateLight 5s linear infinite;
+}
+
+@keyframes animateLight {
+    0%, 18%, 20%, 50.1%, 60%, 65.1%, 80%, 90.1%, 92% {
+        color: #474747;
+        text-shadow: none;
+    }
+    18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 92.1%, 100% {
+        color: rgb(255, 255, 255);
+        text-shadow: 0 0 10px #ff6600,
+                    0 0 20px #03bcf4,
+                    0 0 40px #03bcf4,
+                    0 0 80px #03bcf4,
+                    0 0 160px #03bcf4;
+
+    }
+}

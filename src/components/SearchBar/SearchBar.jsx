@@ -1,7 +1,7 @@
 import styles from './SearchBar.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-const SearchBar = ( { handleClick } )=> {
+const SearchBar = ( { handleClick, searchWord } )=> {
     const [ input, setInput ] = useState( '' )
     const [ filter, setFilter ] = useState('')
 
@@ -21,6 +21,9 @@ const SearchBar = ( { handleClick } )=> {
         setInput('')
     }
 
+    useEffect( ()=> {
+        if( searchWord ) setFilter( searchWord.toUpperCase() )
+    }, [searchWord] )
     return(
         <div className= { styles.contentSearch }>
             <div className= { styles.search_box }>
@@ -31,9 +34,14 @@ const SearchBar = ( { handleClick } )=> {
                     onChange= { handleChange }
                     value= { input } />
                 <button className= { styles.search_box_btn } onClick= { handleClickFilter } >Buscar</button>
-                <div className={styles.filter}>
-                    <p>Filtrar por: </p>
-                    {filter && <div><p>{filter}</p><button onClick={handleClearFilter}>X</button></div>}
+                <div className={ styles.filter } >
+                    <p className={ styles.textFilter } >Filtrar por: </p>
+                    {filter && 
+                        <div className= { styles.wordSearch } >
+                            <p>{filter}</p>
+                            <button onClick={handleClearFilter}>X</button>
+                        </div>
+                    }
                 </div>
             </div>
         </div>

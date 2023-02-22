@@ -1,28 +1,30 @@
-import { useEffect, useState } from 'react'
 import './App.css'
-import SearchBar from './components/SearchBar/SearchBar'
-import ViewImages from './components/ViewImages/ViewImages'
+import { useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
-import Loader from './components/Loader/Loader'
-import Background from './components/Background/Background'
+import { SearchBar, ViewImages, Loader, Background, Title } from './components'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
-const ACCESS_KEY = 'wlsmAcUjbRx8GFvyl8AmjlKUprZKE1G8U74voEqrK9c'
+AOS.init()
+
+const { VITE_ACCESS_KEY } = import.meta.env;
+
 let cargarImagenes = true
 
 function App() {
   const [ images, setImages ] = useState( [] )
-  const [ searchChar, setSearchChar ] = useState( '' )
+  const [ searchWord, setSearchWord ] = useState( '' )
 
   const handleClick = async (character)=> {
     const apiRoot = 'https://api.unsplash.com' 
-    const URL = `${ apiRoot }/photos/random/?client_id=${ ACCESS_KEY }&count=4&query=${character}`
+    const URL = `${ apiRoot }/photos/random/?client_id=${ VITE_ACCESS_KEY }&count=4&query=${character}`
 
     try{
       const res = await fetch(URL)
       const data = await res.json() 
 
-      if( searchChar !== character ) {
-        setSearchChar( character )
+      if( searchWord !== character ) {
+        setSearchWord( character )
         setImages( data )
       } else {
         setImages( [...images, ...data] )
@@ -38,11 +40,12 @@ function App() {
         top: 0, 
         behavior: 'smooth'
       })
+    setSearchWord( value )
     handleClick( value )
   }
 
   const handleNext =  ()=>{
-    handleClick( searchChar )
+    handleClick( searchWord )
   }
 
   useEffect(()=> {
@@ -50,25 +53,27 @@ function App() {
       cargarImagenes = false
       handleClick('')
     }
-  }, [images, cargarImagenes])
-
+  }, [cargarImagenes])
+  
   return (
-    <Background>
-      <div className="App">
-        <h1>GALERÍA DE IMÁGENES</h1>
-        <SearchBar handleClick= { handleClick } />
-        <div>
-          <InfiniteScroll 
-            dataLength={ images.length }
-            next= { handleNext }
-            hasMore= { true }
-            loader={ <Loader /> }
-            >
-            { images.length !== 0 && <ViewImages images= { images } handleClickTopic= { handleClickTopic } /> }
-          </InfiniteScroll>
-        </div>
+    <div className="App">
+      <Background>
+      <div className= "headerContain" >
+        <Title />
+        <SearchBar handleClick= { handleClick } searchWord= { searchWord } />
       </div>
-    // </Background>
+      <div className= 'images' >
+        <InfiniteScroll 
+          dataLength={ images.length }
+          next= { handleNext }
+          hasMore= { true }
+          loader={ <Loader /> }
+          >
+          { images.length !== 0 && <ViewImages images= { images } handleClickTopic= { handleClickTopic } /> }
+        </InfiniteScroll>
+      </div>
+      </Background>
+    </div>
   )
 }
 
