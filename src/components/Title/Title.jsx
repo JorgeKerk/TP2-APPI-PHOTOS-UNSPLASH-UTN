@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Title.module.css'
 
+// TITULO ANIMADO
 const Title = ()=> {
     return(
         <>

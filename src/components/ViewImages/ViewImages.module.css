@@ -1,3 +1,4 @@
+/* Contenedor principal de todas las imagenes a ser mostradas */
 .main_content {
     padding-top: 10.5rem;
     width: 100%;
@@ -6,6 +7,7 @@
     align-items: center;
 }
 
+/* Subcontenedor principal de todas las imagenes a ser mostradas */
 .main_content_grid {
     width: 100%;
     display: grid;

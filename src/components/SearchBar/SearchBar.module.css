@@ -1,8 +1,11 @@
+/* Contenedor principal de la barra de búsqueda */
 .contentSearch {
     width: 100%;
     display: flex;
     align-items: center;
 }
+
+/* Barra de búsqueda */
 .search_box {
     width: 100%;
     border-radius: 20px;
@@ -15,6 +18,7 @@
     padding: 0.5rem;
 }
 
+/* Ingreso de datos de la barra de búsqueda */
 .search_box_input {
     color: white;
     width: 40%;
@@ -29,6 +33,7 @@
     color: rgba(255, 255, 255, 0.7);
 }
 
+/* Botón de Buscar imagenes */
 .search_box_btn {
     color: white;
     font-size:1rem;
@@ -41,6 +46,7 @@
     cursor: pointer;
     transition: 0.2s ease-in;
 }
+
 .search_box_btn:hover {
     transform: scale(1.1);
     color: black;
@@ -50,35 +56,22 @@
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
+/* Contenedor del filtro de imágenes seleccionado */
 .filter {
     width: 40%;
     display: flex;
-    /* flex-wrap: wrap; */
     align-items: center;
     margin-left: 2rem;
     color: black;
     gap: 1rem;
 }
 
+/* Texto 'Filtrar por:' */
 .textFilter {
     color: white;
 }
 
-.wordSearch button {
-    margin-left: 0.3rem;
-    width: fit-content;
-    height: fit-content;
-    padding: 0.2rem 0.4rem;
-    border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    transition: 0.2s ease-in;
-    background-color: rgba(255, 255, 255, 0.7);
-}
-
-.wordSearch button:hover {
-    background-color: rgba(255, 0, 0, 0.7);
-}
-
+/* Palabra que filtra las imágenes */
 .wordSearch {
     display: flex;
     text-shadow: 1px 1px 3px rgba(128, 128, 128, 0.5);
@@ -102,6 +95,21 @@
 
 .wordSearch p {
     background-color: transparent;
+}
+
+.wordSearch button {
+    margin-left: 0.3rem;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.2rem 0.4rem;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    transition: 0.2s ease-in;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.wordSearch button:hover {
+    background-color: rgba(255, 0, 0, 0.7);
 }
 
 @media ( max-width: 1200px ){
