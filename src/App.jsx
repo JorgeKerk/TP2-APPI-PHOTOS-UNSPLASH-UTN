@@ -38,6 +38,11 @@ function App() {
       const { data } = await axios( URL )
       
       if( searchWord !== character ) {
+        // Scrollea al inicio de la página
+        window.scrollTo({
+          top: 0, 
+          behavior: 'smooth'
+        })
         // carga la aplabra que filtra las imágenes
         setSearchWord( character )
         // Carga las imágenes traídas de la API pisando/borrando las imagenes ya cargadas en la variable de estado 'images'
@@ -54,10 +59,6 @@ function App() {
 
   // AL HACER CLICK EN UN TOPIC, VUELVE AL INICIO DE LA PÁGINA Y CARGA LAS IMAGENES RELACIONADAS CON ESE TOPIC
   const handleClickTopic = ( value )=>{
-      window.scrollTo({
-        top: 0, 
-        behavior: 'smooth'
-      })
     setSearchWord( value )
     handleClick( value )
   }
