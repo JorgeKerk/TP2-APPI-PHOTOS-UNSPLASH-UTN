@@ -4,14 +4,14 @@ import Tilt from 'react-parallax-tilt'
 import { saveAs } from 'file-saver'
 
 // MUESTRA LA IMAGEN EN FORMATO TRAJETA CON LOS DATOS ENVIADOS POR PROPS
-const ImageView = ( { move, image, description, ubication, cam, topics, handleClickTopic } )=> {
+const ImageView = ( { move, image, id, description, ubication, cam, topics, handleClickTopic } )=> {
     // 'move' indica de que lado aparece o desaparece la imagen al hacer scroll en la página
     // 'image, description, ubication, cam, topics' son datos de la imagen
     // 'handleClickTopic' es la funcion que se ejecuta al hacer click en un topic
 
     // DESCARGA LA IMAGEN SELECCIONADA
     const downloadImg = ()=> {
-        saveAs( image, `${description}.jpeg` )
+        saveAs( image, `${description? description : id }.jpeg` )
     }
 
     return(
@@ -34,12 +34,13 @@ const ImageView = ( { move, image, description, ubication, cam, topics, handleCl
                 {/* Datos de la imagen */}
                 <div className= { styles.visibility }>
                     <div>
+                        <p className= { styles.description }>{ description? description : 'Descripción no definida' }</p>
                         <h5 > { ubication } <span className= { styles.descrip }>( Ubicación Fotografía )</span></h5>
                         <hr />
                         <h5 > { cam } <span className= { styles.descrip }>( Cámara )</span></h5>
                         <hr />
                     </div>
-                    <div>
+                    <div className= { styles.containerTopics }>
                         <span className= { styles.topic }><strong>Topics: </strong></span>
                         {   Object.getOwnPropertyNames(topics).length > 0 && 
                             Object.getOwnPropertyNames(topics).map( ( t, ind ) => 

@@ -1,4 +1,5 @@
 import './App.css'
+import axios from 'axios'
 import { useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { SearchBar, ViewImages, Loader, Background, Title } from './components'
@@ -27,9 +28,8 @@ function App() {
     const URL = `${ API_ROOT }/photos/random/?client_id=${ VITE_ACCESS_KEY }&count=${ IMAGES_PER_REQUEST }&query=${ character }`
 1
     try{
-      const res = await fetch( URL )
-      const data = await res.json() 
-
+      const { data } = await axios( URL )
+      
       if( searchWord !== character ) {
         // carga la aplabra que filtra las imágenes
         setSearchWord( character )
@@ -37,7 +37,7 @@ function App() {
         setImages( data )
       } else {
         // Agraga las imagenes traídas de la API a las imagenes ya cargadas en la variable de estado 'images'
-        setImages( [...images, ...data] )
+        setImages( ( currentState ) => [ ...currentState, ...data ] )
       } 
     } catch( error ){
       window.alert( error.message )

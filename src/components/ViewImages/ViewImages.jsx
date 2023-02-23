@@ -16,7 +16,8 @@ const ViewImages = ( { images, handleClickTopic } )=> {
                         key= { key }
                         move= { key % 4 === 0? 'right' : key % 4 <= 2? 'up' : 'left' }
                         image= { image?.urls.regular }
-                        description= { image?.description? image?.description : image?.id }
+                        id= { image?.id }
+                        description= { image?.description }
                         ubication= { image?.location?.name? image?.location?.name : 'no definido' }
                         cam= { image?.exif?.make? `${ image?.exif?.make } ${image?.exif?.model}` : 'no definido' }
                         topics= { image?.topic_submissions }

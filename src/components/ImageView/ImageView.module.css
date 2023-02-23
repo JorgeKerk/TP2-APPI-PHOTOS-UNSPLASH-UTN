@@ -16,6 +16,7 @@
 .content_image img {
     border-radius: 1rem 1rem 0 0;
     width: 100%;
+    height: 18rem;
     max-width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
@@ -54,7 +55,7 @@
 /* Contenedor de datos de la tarjeta */
 .visibility {
     font-size: 1.1rem;
-    padding: 1rem;
+    padding: 0 0.5rem 0.5rem 0.5rem;
     display: block;
     transition: 0.5s ease-in;
     transform: translateZ(20px);
@@ -64,10 +65,22 @@
     width: 94%;
 }
 
+/* Descripcion de la imagen */
+.description {
+    margin: 0.5rem;
+    font-size: 0.7rem;
+    color: rgba(163, 241, 215, 0.8);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
 /* Descripcion del dato a mostrar */
 .descrip {
     font-weight: 100;
     font-size: 0.75rem;
+}
+
+.containerTopics {
+    padding-top: 0.5rem;
 }
 
 .topic {

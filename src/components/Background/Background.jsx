@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useEffect, useState } from 'react';
 import styles from './Background.module.css'
 
@@ -19,10 +20,9 @@ const Background = ( {children} )=> {
             const apiRoot = 'https://api.unsplash.com' 
             const URL = `${ apiRoot }/photos/random/?client_id=${ VITE_ACCESS_KEY }&count=${cantImgs}&query=wallpaper`
             try{
-                const res = await fetch(URL)
-                const data = await res.json() 
-                setImg(data)
+                const { data } = await axios(URL)
 
+                setImg(data)
             } catch( error ){
                 window.alert( error.message )
               }              
