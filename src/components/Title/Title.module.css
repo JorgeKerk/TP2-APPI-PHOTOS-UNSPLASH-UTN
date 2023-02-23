@@ -26,3 +26,9 @@
 
     }
 }
+
+@media ( max-width: 495px ){
+    .titleContent{
+        font-size: 1.5rem;
+    }
+}

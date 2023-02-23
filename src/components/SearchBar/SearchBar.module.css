@@ -146,3 +146,9 @@
         width: 60%;
     }
 }
+
+@media ( max-width: 495px ){
+    .search_box_input{
+        width: 40%;
+    }
+}
