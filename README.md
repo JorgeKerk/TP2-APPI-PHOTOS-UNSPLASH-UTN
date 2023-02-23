@@ -54,7 +54,9 @@ Podrá buscar otra palabra o frase, o podrá eliminar el filtro presionando el b
 > [▶ Inicio:](https://jorgekerk.github.io/TP2-APPI-PHOTOS-UNSPLASH-UTN/) 
 
 **Advertencia:** La petición a la API Rest Unsplash es una demo, por lo tanto, las imágenes traídas son limitadas y puede ser que en algún momento salga la siguiente advertencia:
+
 ![Alt text](src/assets/Alert.png)
+
 En este caso, deberá esperar una hora antes de volver a utilizar la página.
 
 <hr>
