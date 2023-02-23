@@ -29,7 +29,7 @@ function App() {
 
       const API_ROOT = 'https://api.unsplash.com' 
       // API KEY
-      const { VITE_ACCESS_KEY } = import.meta.env;
+      const { VITE_ACCESS_KEY } = import.meta.env
       // Númer de imagenes traídas de la API por cada petición (GET) 
       const IMAGES_PER_REQUEST = 4 
 
@@ -69,9 +69,9 @@ function App() {
   }
   
   return (
-    <div className= "App" >
+    <div className= 'App' >
       <Background handleClick= { handleClick }>
-        <div className= "headerContain" >
+        <div className= 'headerContain' >
           <Title />
           <SearchBar handleClick= { handleClick } searchWord= { searchWord } />
         </div>

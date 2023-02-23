@@ -1,6 +1,6 @@
 import styles from './ViewImages.module.css'
-import React from 'react';
-import ImageView from '../ImageView/ImageView';
+import React from 'react'
+import ImageView from '../ImageView/ImageView'
 
 // CONTENEDOR DE LAS IMAGENES/TARJETAS A VISUALIZAR
 const ViewImages = ( { images, handleClickTopic } )=> {

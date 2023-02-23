@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import styles from './Loader.module.css'
 
 // ANIMACION QUE MUESTRA PUNTOS DE ESPERA GIRANDO HORIZONTALMENTE CUANDO SE DEMORA EN CARGAR LAS IMAGENES 

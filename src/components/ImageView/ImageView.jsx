@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './ImageView.module.css';
+import React from 'react'
+import styles from './ImageView.module.css'
 import Tilt from 'react-parallax-tilt'
 import { saveAs } from 'file-saver'
 
@@ -21,12 +21,12 @@ const ImageView = ( { move, image, id, description, ubication, cam, topics, hand
                 className= { styles.content_image } 
                 // seteos de desplazamiento de tarjeta al cargarse o al desvanecerse
                 data-aos= { `zoom-in-${ move }` }
-                data-aos-offset="200"
-                data-aos-delay="50"
-                data-aos-duration="500"
-                data-aos-easing="ease-in-out"
-                data-aos-mirror="true"
-                data-aos-once="false"
+                data-aos-offset='200'
+                data-aos-delay='50'
+                data-aos-duration='500'
+                data-aos-easing='ease-in-out'
+                data-aos-mirror='true'
+                data-aos-once='false'
             >
                 <img src= { image } alt= { ubication } />
                 {/* Boton de descarga de imagen */}
@@ -45,7 +45,7 @@ const ImageView = ( { move, image, id, description, ubication, cam, topics, hand
                         {   Object.getOwnPropertyNames(topics).length > 0 && 
                             Object.getOwnPropertyNames(topics).map( ( t, ind ) => 
                                 // carga de Topics si los hubiere
-                                <a href="#" className= { styles.link }
+                                <a href='#' className= { styles.link }
                                     key= { ind }
                                     onClick= { ( event )=> handleClickTopic( event.target.textContent )}
                                 >

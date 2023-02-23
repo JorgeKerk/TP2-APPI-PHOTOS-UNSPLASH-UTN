@@ -47,7 +47,7 @@ const SearchBar = ( { handleClick, searchWord } )=> {
                 <input 
                     className= { styles.search_box_input } 
                     placeholder= 'Buscar imágenes ...' 
-                    type="text"
+                    type='text'
                     onChange= { handleChange }
                     value= { input } />
                 <button className= { styles.search_box_btn } onClick= { handleClickFilter } >Buscar</button>

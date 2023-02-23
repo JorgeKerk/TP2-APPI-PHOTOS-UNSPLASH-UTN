@@ -1,10 +1,9 @@
 import axios from 'axios'
 import backgroundImg from '../../assets/Background.jpg'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import styles from './Background.module.css'
-import ErrorMsg from '../ErrorMsg/ErrorMsg';
 
-const { VITE_ACCESS_KEY } = import.meta.env;
+const { VITE_ACCESS_KEY } = import.meta.env
 
 // MUESTRA IMÁGENES EN EL FONDO DEL PROYECTO, CAMBIAN CADA 1 MINUTO
 const Background = ( {children, handleClick} )=> {
@@ -68,8 +67,8 @@ const Background = ( {children, handleClick} )=> {
                 //  Si el índice es -1, falló el pedido a la API y muestra la imagen por defecto
                 ind !== -2
                 ? ind >= 0
-                    ? <img className= { styles.image } src= { img[ind]?.urls?.full? img[ind]?.urls?.full : '' } alt="Imagen de fondo" />
-                    : <img className= { styles.image } src= { backgroundImg } alt="Imagen de fondo" />
+                    ? <img className= { styles.image } src= { img[ind]?.urls?.full? img[ind]?.urls?.full : '' } alt='Imagen de fondo' />
+                    : <img className= { styles.image } src= { backgroundImg } alt='Imagen de fondo' />
                 : null
             }
             { children }
