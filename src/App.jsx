@@ -2,7 +2,7 @@ import './App.css'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
-import { SearchBar, ViewImages, Loader, Background, Title } from './components'
+import { SearchBar, ViewImages, Loader, Background, Title, ErrorMsg } from './components'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -10,24 +10,31 @@ import 'aos/dist/aos.css'
 AOS.init()
 
 function App() {
-  // Variable que indica la carga por primera y única vez de las imagenes al azar al iniciar la página 
-  let cargarImagenes = true
   // Imágenes traídas de la API, ya sean al azar o filtradas por una palabra o frase
   const [ images, setImages ] = useState( [] )
   // Palabra o frase que filtra las imágenes
   const [ searchWord, setSearchWord ] = useState( '' )
   
+  const [ errorMsg, setErrorMsg ] = useState( '' )
   
-  const handleClick = async (character)=> {
-    const API_ROOT = 'https://api.unsplash.com' 
-    // API KEY
-    const { VITE_ACCESS_KEY } = import.meta.env;
-    // Númer de imagenes traídas de la API por cada petición (GET) 
-    const IMAGES_PER_REQUEST = 4 
+  
+  const handleClick = async (character, msgError = '')=> {
+    // 'character' es la palabra o frase que filtran las imagenes pedidas a la API
+    //  Si está vacio, las imagenes son aleatorias
+    // 'msgError' se genera si falló el pedido a la API en el componente Background
+    // Si 'msgError' no está vacío, se genera un error, se catura, y se guarda para mostrarlo por pantalla (rederizarlo)
 
-    const URL = `${ API_ROOT }/photos/random/?client_id=${ VITE_ACCESS_KEY }&count=${ IMAGES_PER_REQUEST }&query=${ character }`
+    try {
+      if( msgError ) throw Error( msgError )
+
+      const API_ROOT = 'https://api.unsplash.com' 
+      // API KEY
+      const { VITE_ACCESS_KEY } = import.meta.env;
+      // Númer de imagenes traídas de la API por cada petición (GET) 
+      const IMAGES_PER_REQUEST = 4 
+
+      const URL = `${ API_ROOT }/photos/random/?client_id=${ VITE_ACCESS_KEY }&count=${ IMAGES_PER_REQUEST }&query=${ character }`
 1
-    try{
       const { data } = await axios( URL )
       
       if( searchWord !== character ) {
@@ -39,8 +46,9 @@ function App() {
         // Agraga las imagenes traídas de la API a las imagenes ya cargadas en la variable de estado 'images'
         setImages( ( currentState ) => [ ...currentState, ...data ] )
       } 
-    } catch( error ){
-      window.alert( error.message )
+    } catch (error) {
+      //  Se captura el error y se guarda en una variable de estado para luego renderizarlo
+      setErrorMsg( error.message )
     }
   }
 
@@ -59,18 +67,10 @@ function App() {
   const handleNext =  ()=>{
     handleClick( searchWord )
   }
-
-  useEffect(()=> {
-    // Al iniciar la página, carga por primera vez las imágenes al azar
-    if( cargarImagenes ) {
-      cargarImagenes = false
-      handleClick('')
-    }
-  }, [ cargarImagenes ])
   
   return (
     <div className= "App" >
-      <Background>
+      <Background handleClick= { handleClick }>
         <div className= "headerContain" >
           <Title />
           <SearchBar handleClick= { handleClick } searchWord= { searchWord } />
@@ -85,6 +85,8 @@ function App() {
             { images.length !== 0 && <ViewImages images= { images } handleClickTopic= { handleClickTopic } /> }
           </InfiniteScroll>
         </div>
+        {/* Si hay error, se muestra por pantalla */}
+        { errorMsg && <ErrorMsg message= { errorMsg } />}
       </Background>
     </div>
   )

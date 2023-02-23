@@ -9,6 +9,7 @@
 
 /* Subcontenedor principal de todas las imagenes a ser mostradas */
 .main_content_grid {
+    padding: 0 1rem;
     width: 100%;
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax(200px, 1fr)  );
