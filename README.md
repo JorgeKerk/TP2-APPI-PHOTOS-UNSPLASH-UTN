@@ -1,4 +1,4 @@
-# MI APP 📷 GALERÍA DE IMÁGENES 📸
+# <span style='color:orange'><strong>MI APP 📷 GALERÍA DE IMÁGENES 📸</strong></span>
 
 <br>
 
@@ -10,7 +10,7 @@
 ----------
 <br>
 
-**Introducción**
+<span style='color:Greenyellow'>**Introducción**</span>
 <hr>
 
 Este proyecto consiste en el desarrollo de una página web que muestra imágenes aleatorias consumidas desde la **API Rest Unsplash**. También tendtrá la posibilidad de filtrar por una palabra o frase ingresada por usted, o de filtrar por algún Topic ( o palabra clave ) si la imagen se encuentran topicos en la imágen. Por último, si la imágen es de su agrado, podrá descargarla de la página simplemente hacioendo click en el botón de descarga ( ↓ ).
@@ -32,7 +32,7 @@ Este proyecto consiste en el desarrollo de una página web que muestra imágenes
 
 <br>
 
-**Descricpión**
+<span style='color:Greenyellow'>**Descricpión**</span>
 <hr>
 En esta página podrá realizar los siguiente:
 
@@ -50,12 +50,12 @@ Podrá buscar otra palabra o frase, o podrá eliminar el filtro presionando el b
 
 <hr>
 
-# **Link a la página web**
+<span style='color:Greenyellow'>**Link a la página web**</span>
 > [▶ Inicio:](https://jorgekerk.github.io/TP2-APPI-PHOTOS-UNSPLASH-UTN/) 
 
-**Advertencia:** La petición a la API Rest Unsplash es una demo, por lo tanto, las imágenes traídas son limitadas y puede ser que en algún momento salga la siguiente advertencia:
+**Advertencia:** La petición a la API Rest Unsplash es una demo, por lo tanto, las imágenes traídas son limitadas y puede ser que en algún momento salga el siguiente error: 
 
-![Alt text](src/assets/Alert.png)
+<span style="color:red"> **Unexpected token 'R', "Rate Limit Exceded" is not valid JSON**</span> 
 
 En este caso, deberá esperar una hora antes de volver a utilizar la página.
 
@@ -63,4 +63,4 @@ En este caso, deberá esperar una hora antes de volver a utilizar la página.
 
 <br>
 
-Espero que esta página le sea de su agrado y de su utilidad, lo saludo cordialmente ***JORGE KERK***.
+Espero que esta página le sea de su agrado y de su utilidad, lo saludo cordialmente <span style='color:Mediumvioletred'>***JORGE KERK***</span>.
