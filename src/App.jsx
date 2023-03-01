@@ -1,6 +1,6 @@
 import './App.css'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { SearchBar, ViewImages, Loader, Background, Title, ErrorMsg } from './components'
 import AOS from 'aos'
@@ -16,8 +16,7 @@ function App() {
   const [ searchWord, setSearchWord ] = useState( '' )
   
   const [ errorMsg, setErrorMsg ] = useState( '' )
-  
-  
+    
   const handleClick = async (character, msgError = '')=> {
     // 'character' es la palabra o frase que filtran las imagenes pedidas a la API
     //  Si está vacio, las imagenes son aleatorias
@@ -31,7 +30,7 @@ function App() {
       // API KEY
       const { VITE_ACCESS_KEY } = import.meta.env
       // Númer de imagenes traídas de la API por cada petición (GET) 
-      const IMAGES_PER_REQUEST = 4 
+      const IMAGES_PER_REQUEST = 12
 
       const URL = `${ API_ROOT }/photos/random/?client_id=${ VITE_ACCESS_KEY }&count=${ IMAGES_PER_REQUEST }&query=${ character }`
 1

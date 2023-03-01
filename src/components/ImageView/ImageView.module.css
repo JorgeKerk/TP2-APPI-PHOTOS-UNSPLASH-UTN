@@ -46,7 +46,7 @@
     transform: scale(1.15);
     border: 1px solid gray;
     color: black;
-    background-color: lightgray;
+    background-color: rgba(255, 205, 98, 0.911);
     box-shadow: 1px 1px 1px gray;
     text-shadow: 1px 1px 1px gray;
     animation: arrowDown 0.5s infinite;
